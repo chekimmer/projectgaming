@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Congratulations!</title>
+</head>
+<body>
+    <div class="congratulations-container">
+        <h1>Congratulations!</h1>
+        <p>You have completed the Alphabet Matching Game!</p>
+        <p>Great job on matching all the letters!</p>
+        <button id="play-again-button">Play Again</button>
+        <button id="menu-button">Return to Menu</button>
+    </div>
+
+    <script>
+        const playAgainButton = document.getElementById("play-again-button");
+        const menuButton = document.getElementById("menu-button");
+
+        // Navigate to the game page
+        playAgainButton.addEventListener("click", function() {
+            window.location.href = 'index.html'; // Change to your game page URL
+        });
+
+        // Navigate to the menu
+        menuButton.addEventListener("click", function() {
+            window.location.href = 'index.html'; // Change to your menu page URL
+        });
+    </script>
+</body>
+</html>
