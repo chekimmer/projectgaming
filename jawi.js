@@ -115,7 +115,7 @@ function checkForWin() {
                 createCards(); // Create cards for the next stage
             } else {
                 // Redirect to the congratulation page after completing all stages
-                window.location.href = 'congratulations_jawi.html'; // Change to your congratulations page URL
+                window.location.href = 'congratulations.html'; // Change to your congratulations page URL
             }
         }, 500); // Wait for 1 second before redirecting
     }

@@ -32,12 +32,13 @@ h1 {
 .game-container {
     display: grid;
     grid-template-columns: repeat(4, 100px);
-    grid-gap: 10px;
+    grid-gap: 100px;
+    row-gap: 70px;
 }
 
 .card {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background-color: #4CAF50;
     display: flex;
     justify-content: center;
