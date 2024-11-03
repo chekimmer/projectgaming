@@ -1,16 +1,17 @@
 const gameContainer = document.getElementById("game-container");
 const restartButton = document.getElementById("restart-button");
 const menuButton = document.getElementById("menu-button");
-const homeButton = document.getElementById("home-button"); // Back to Home button
+const homeButton = document.getElementById("home-button");
 const timerDisplay = document.getElementById("timer-display");
 const stageDisplay = document.getElementById("stage-display");
 let cards = [];
 let firstCard = null;
 let secondCard = null;
 let lockBoard = false;
-let timer; // Timer variable
-let seconds = 0; // Seconds counter
-let currentStage = 1; // Track the current stage
+let timer;
+let seconds = 0;
+let currentStage = 1;
+const totalStages = 5; // Total number of stages
 
 // Jawi letters array divided into stages
 const jawiStages = [
@@ -39,9 +40,9 @@ function createCards() {
     // Reset timer for the new game
     seconds = 0;
     timerDisplay.textContent = `Time: ${seconds} seconds`;
-    stageDisplay.textContent = `Current Stage: ${currentStage}`;
+    stageDisplay.textContent = `Current Stage: ${currentStage} / ${totalStages}`; // Update stage display with total stages
     clearInterval(timer);
-    timer = setInterval(updateTimer, 1000);
+    timer = setInterval(updateTimer, 400);
 }
 
 // Shuffle the cards
@@ -96,7 +97,7 @@ function unflipCards() {
         firstCard.textContent = '';
         secondCard.textContent = '';
         resetBoard();
-    }, 1000);
+    }, 450);
 }
 
 // Reset the board for the next turn
@@ -110,14 +111,14 @@ function checkForWin() {
     if (matchedCards.length === cards.length) {
         clearInterval(timer); // Stop the timer
         setTimeout(() => {
-            if (currentStage < 5) {
+            if (currentStage < totalStages) {
                 currentStage++; // Move to the next stage
                 createCards(); // Create cards for the next stage
             } else {
                 // Redirect to the congratulation page after completing all stages
                 window.location.href = 'congratulations.html'; // Change to your congratulations page URL
             }
-        }, 500); // Wait for 1 second before redirecting
+        }, 500); // Wait for 0.5 seconds before progressing
     }
 }
 
@@ -149,7 +150,7 @@ restartButton.addEventListener("click", restartGame);
 // Event listener for the menu button
 menuButton.addEventListener("click", backToMenu);
 
-// Event listener for the home button
+// Event listener for the home button (using the transparent "return.png" image as a button)
 homeButton.addEventListener("click", backToHome); // Ensure the home button works
 
 // Start the game

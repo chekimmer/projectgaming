@@ -1,32 +1,34 @@
 const gameContainer = document.getElementById("game-container");
 const restartButton = document.getElementById("restart-button");
 const menuButton = document.getElementById("menu-button");
-const homeButton = document.getElementById("home-button"); // New button
+const homeButton = document.getElementById("home-button");
 const timerDisplay = document.getElementById("timer-display");
+const stageDisplay = document.getElementById("stage-display"); // New stage display
 let cards = [];
 let firstCard = null;
 let secondCard = null;
 let lockBoard = false;
-let timer; // Timer variable
-let seconds = 0; // Seconds counter
-let currentStage = 1; // Track the current stage
+let timer;
+let seconds = 0;
+let currentStage = 1;
+const totalStages = 2; // Define the total number of stages
 
 // Define arrays for each stage of numbers
 const stages = [
     [ // Stage 1
-        '1', '1', '2', '2', '3', '3', '4', '4', '5', '5', // Stage 1 with pairs of numbers 1-5
+        '1', '1', '2', '2', '3', '3', '4', '4', '5', '5',
     ],
     [ // Stage 2
-        '6', '6', '7', '7', '8', '8', '9', '9', '10', '10' // Stage 2 with pairs of numbers 6-10
+        '6', '6', '7', '7', '8', '8', '9', '9', '10', '10'
     ]
 ];
 
 function createCards() {
-    const numbers = stages[currentStage - 1]; // Get numbers for the current stage
-    const shuffledNumbers = shuffleArray(numbers); // Shuffle numbers
+    const numbers = stages[currentStage - 1];
+    const shuffledNumbers = shuffleArray(numbers);
 
-    gameContainer.innerHTML = ''; // Clear previous cards
-    cards = []; // Reset the cards array
+    gameContainer.innerHTML = '';
+    cards = [];
     shuffledNumbers.forEach(number => {
         const card = document.createElement("div");
         card.classList.add("card");
@@ -40,7 +42,10 @@ function createCards() {
     seconds = 0;
     timerDisplay.textContent = `Time: ${seconds} seconds`;
     clearInterval(timer);
-    timer = setInterval(updateTimer, 1000);
+    timer = setInterval(updateTimer, 400);
+
+    // Update stage display
+    stageDisplay.textContent = `Current Stage: ${currentStage} / ${totalStages}`;
 }
 
 // Shuffle the cards
@@ -95,7 +100,7 @@ function unflipCards() {
         firstCard.textContent = '';
         secondCard.textContent = '';
         resetBoard();
-    }, 1000);
+    }, 450);
 }
 
 // Reset the board for the next turn
@@ -107,16 +112,15 @@ function resetBoard() {
 function checkForWin() {
     const matchedCards = document.querySelectorAll(".matched");
     if (matchedCards.length === cards.length) {
-        clearInterval(timer); // Stop the timer
+        clearInterval(timer);
         setTimeout(() => {
             if (currentStage < stages.length) {
-                currentStage++; // Move to the next stage
-                createCards(); // Create cards for the next stage
+                currentStage++;
+                createCards();
             } else {
-                // Redirect to the congratulation page after completing all stages
-                window.location.href = 'congratulations.html'; // Change to your congratulations page URL
+                window.location.href = 'congratulations.html';
             }
-        }, 1000); // Wait for 1 second before moving to the next stage
+        }, 500);
     }
 }
 
@@ -126,20 +130,20 @@ function restartGame() {
     cards = [];
     firstCard = null;
     secondCard = null;
-    currentStage = 1; // Reset to the first stage
-    createCards(); // Create cards for the game
-    menuButton.style.display = "none"; // Hide menu button
-    restartButton.style.display = "none"; // Hide restart button
+    currentStage = 1;
+    createCards();
+    menuButton.style.display = "none";
+    restartButton.style.display = "none";
 }
 
 // Navigate back to the menu
 function backToMenu() {
-    window.location.href = 'index.html'; // Change to the appropriate menu URL
+    window.location.href = 'index.html';
 }
 
 // Navigate back to the home page
 function backToHome() {
-    window.location.href = 'index.html'; // Change to your home page URL
+    window.location.href = 'index.html';
 }
 
 // Event listener for the restart button
@@ -149,7 +153,7 @@ restartButton.addEventListener("click", restartGame);
 menuButton.addEventListener("click", backToMenu);
 
 // Event listener for the home button
-homeButton.addEventListener("click", backToHome); // Add event listener for home button
+homeButton.addEventListener("click", backToHome);
 
 // Start the game
 createCards();

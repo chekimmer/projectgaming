@@ -11,59 +11,30 @@ let secondCard = null;
 let lockBoard = false;
 let timer;
 let seconds = 0;
-let currentStage = 1; // Track the current stage
+let currentStage = 1;
+const totalStages = 5; // Total number of stages
 
 // Define arrays for each stage of images
 const stages = [
     [ // Stage 1
-        'pics/a.png',
-        'pics/a.png',
-        'pics/b.png',
-        'pics/b.png',
-        'pics/c.png',
-        'pics/c.png',
-        'pics/d.png',
-        'pics/d.png'
+        'pics/a.png', 'pics/a.png', 'pics/b.png', 'pics/b.png',
+        'pics/c.png', 'pics/c.png', 'pics/d.png', 'pics/d.png'
     ],
     [ // Stage 2
-        'pics/e.png',
-        'pics/e.png',
-        'pics/f.png',
-        'pics/f.png',
-        'pics/g.png',
-        'pics/g.png',
-        'pics/h.png',
-        'pics/h.png'
+        'pics/e.png', 'pics/e.png', 'pics/f.png', 'pics/f.png',
+        'pics/g.png', 'pics/g.png', 'pics/h.png', 'pics/h.png'
     ],
     [ // Stage 3
-        'pics/i.png',
-        'pics/i.png',
-        'pics/j.png',
-        'pics/j.png',
-        'pics/k.png',
-        'pics/k.png',
-        'pics/l.png',
-        'pics/l.png'
+        'pics/i.png', 'pics/i.png', 'pics/j.png', 'pics/j.png',
+        'pics/k.png', 'pics/k.png', 'pics/l.png', 'pics/l.png'
     ],
     [ // Stage 4
-        'pics/m.png',
-        'pics/m.png',
-        'pics/n.png',
-        'pics/n.png',
-        'pics/o.png',
-        'pics/o.png',
-        'pics/p.png',
-        'pics/p.png'
+        'pics/m.png', 'pics/m.png', 'pics/n.png', 'pics/n.png',
+        'pics/o.png', 'pics/o.png', 'pics/p.png', 'pics/p.png'
     ],
     [ // Stage 5
-        'pics/q.png',
-        'pics/q.png',
-        'pics/r.png',
-        'pics/r.png',
-        'pics/s.png',
-        'pics/s.png',
-        'pics/t.png',
-        'pics/t.png'
+        'pics/q.png', 'pics/q.png', 'pics/r.png', 'pics/r.png',
+        'pics/s.png', 'pics/s.png', 'pics/t.png', 'pics/t.png'
     ]
 ];
 
@@ -90,9 +61,9 @@ function createCards() {
     // Reset timer for the new game
     seconds = 0;
     timerDisplay.textContent = `Time: ${seconds} seconds`;
-    stageDisplay.textContent = `Current Stage: ${currentStage}`;
+    stageDisplay.textContent = `Current Stage: ${currentStage} / ${totalStages}`; // Update stage display with total stages
     clearInterval(timer);
-    timer = setInterval(updateTimer, 1000);
+    timer = setInterval(updateTimer, 400);
 }
 
 // Shuffle the cards
@@ -148,7 +119,7 @@ function unflipCards() {
         firstCard.classList.remove("flipped");
         secondCard.classList.remove("flipped");
         resetBoard();
-    }, 1000);
+    }, 450);
 }
 
 // Reset the board for the next turn
@@ -164,14 +135,14 @@ function checkForWin() {
         clearInterval(timer); // Stop the timer
 
         setTimeout(() => {
-            if (currentStage < stages.length) {
+            if (currentStage < totalStages) {
                 currentStage++; // Move to the next stage
                 createCards(); // Create cards for the next stage
             } else {
                 // Redirect to the congratulation page after completing all stages
                 window.location.href = `congratulations.html?time=${seconds}`; // Pass the time as a URL parameter
             }
-        }, 1000); // Wait for 1 second before moving to the next stage
+        }, 500); // Wait for 1 second before moving to the next stage
     }
 }
 

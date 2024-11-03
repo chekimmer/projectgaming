@@ -5,36 +5,27 @@ const homeButton = document.getElementById("home-button");
 const menuButton = document.getElementById("menu-button");
 const stageDisplay = document.getElementById("stage-display");
 const timerDisplay = document.getElementById("timer-display");
+
 let cards = [];
 let firstCard = null;
 let secondCard = null;
 let lockBoard = false;
-let currentStage = 1; // Track the current stage
-const stageSizes = [5, 5, 5, 5, 6]; // Number of unique letters in each stage
-let timer; // Timer variable
-let seconds = 0; // Seconds counter
+let currentStage = 1;
+const stageSizes = [4, 4, 4, 4, 4]; // 4 unique letters per stage to make 8 cards per stage
+let timer;
+let seconds = 0;
 
 // Create cards for the current stage
 function createCards() {
     let stageAlphabet;
-    const startIndex = stageSizes.slice(0, currentStage - 1).reduce((a, b) => a + b, 0); // Calculate start index
+    const startIndex = stageSizes.slice(0, currentStage - 1).reduce((a, b) => a + b, 0);
 
-    if (currentStage === 1) {
-        stageAlphabet = alphabet.slice(0, stageSizes[0]); // A-E
-    } else if (currentStage === 2) {
-        stageAlphabet = alphabet.slice(startIndex, startIndex + stageSizes[1]); // F-J
-    } else if (currentStage === 3) {
-        stageAlphabet = alphabet.slice(startIndex, startIndex + stageSizes[2]); // K-O
-    } else if (currentStage === 4) {
-        stageAlphabet = alphabet.slice(startIndex, startIndex + stageSizes[3]); // P-T
-    } else {
-        stageAlphabet = alphabet.slice(startIndex); // U-Z
-    }
+    stageAlphabet = alphabet.slice(startIndex, startIndex + stageSizes[currentStage - 1]); // Get 4 letters for the current stage
 
     const shuffledAlphabet = shuffleArray(stageAlphabet.split('').concat(stageAlphabet.split(''))); // Create pairs
 
-    gameContainer.innerHTML = ''; // Clear previous cards
-    cards = []; // Reset the cards array for the new stage
+    gameContainer.innerHTML = '';
+    cards = [];
     shuffledAlphabet.forEach(letter => {
         const card = document.createElement("div");
         card.classList.add("card");
@@ -48,10 +39,10 @@ function createCards() {
     seconds = 0;
     timerDisplay.textContent = `Time: ${seconds} seconds`;
     clearInterval(timer);
-    timer = setInterval(updateTimer, 1000);
-    stageDisplay.textContent = `Current Stage: ${currentStage}`; // Update stage display
+    timer = setInterval(updateTimer, 400);
+    stageDisplay.textContent = `Current Stage: ${currentStage} / ${stageSizes.length}`; // Update stage display
 
-    menuButton.style.display = "inline"; // Show back to menu button
+    menuButton.style.display = "inline";
 }
 
 // Shuffle the cards
@@ -106,7 +97,7 @@ function unflipCards() {
         firstCard.textContent = '';
         secondCard.textContent = '';
         resetBoard();
-    }, 1000);
+    }, 450);
 }
 
 // Reset the board for the next turn
@@ -118,17 +109,15 @@ function resetBoard() {
 function checkForWin() {
     const matchedCards = document.querySelectorAll(".matched");
     if (matchedCards.length === cards.length) {
-        clearInterval(timer); // Stop the timer
+        clearInterval(timer);
         setTimeout(() => {
-            if (currentStage < 5) {
-                // Automatically progress to the next stage after a delay
-                currentStage++; // Move to the next stage
-                createCards(); // Create cards for the next stage
+            if (currentStage < stageSizes.length) {
+                currentStage++;
+                createCards();
             } else {
-                // Redirect to the congratulation page after completing all stages
-                window.location.href = 'congratulations.html'; // Change to your congratulations page URL
+                window.location.href = 'congratulations.html';
             }
-        }, 2000); // Wait for 2 seconds before progressing to the next stage
+        }, 500);
     }
 }
 
@@ -138,22 +127,22 @@ function restartGame() {
     cards = [];
     firstCard = null;
     secondCard = null;
-    currentStage = 1; // Reset to the first stage
+    currentStage = 1;
     restartButton.style.display = "none";
-    homeButton.style.display = "none"; // Hide return button
-    menuButton.style.display = "none"; // Hide menu button
-    createCards(); // Create cards for the first stage
+    homeButton.style.display = "none";
+    menuButton.style.display = "none";
+    createCards();
 }
 
-// Navigate to the home page (or any designated page)
+// Navigate to the home page
 function returnToHome() {
-    window.location.href = 'index.html'; // Change to the appropriate home page URL
+    window.location.href = 'index.html';
 }
 
 // Navigate back to the menu
 function backToMenu() {
-    restartGame(); // Reset game state
-    window.location.href = 'index.html'; // Change to the appropriate menu URL
+    restartGame();
+    window.location.href = 'index.html';
 }
 
 // Event listener for the restart button

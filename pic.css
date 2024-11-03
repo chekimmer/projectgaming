@@ -1,15 +1,18 @@
 body {
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 20px;
+    background-image: url("Background.jpg");
+   font-family: 'Comic Sans MS', cursive, sans-serif;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 }
 
 h1 {
-    color: #333;
+   color: #1E40FF;
+   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 #timer-display {
@@ -48,3 +51,26 @@ h1 {
 .card.flipped img {
     display: block; /* Show image when flipped */
 }
+#home-button {
+    position: fixed;
+    top: 50%; /* Center vertically */
+    left: 20px; /* Position on the left side */
+    transform: translateY(-50%); /* Adjust position to be exactly centered */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+#return-image {
+    width: 90px; /* Increase the width to make it bigger */
+    height: 90px; /* Increase the height to make it bigger */
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s; /* Add smooth scaling on hover */
+}
+
+#return-image:hover {
+    opacity: 1;
+    transform: scale(1.1); /* Slightly enlarge on hover for effect */
+}
+

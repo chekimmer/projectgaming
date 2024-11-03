@@ -8,12 +8,15 @@
 </head>
 <body>
     <h1>Jawi Letter Matching Game</h1>
-    <div id="timer-display">Time: 0 seconds</div>
-    <div id="stage-display">Current Stage: 1</div>
+    <div id="stage-display">Current Stage: 1 / 5</div> <!-- Display current stage/total stages -->
+    <div id="timer-display">Time: 0 seconds</div> <!-- Timer placed below stage display -->
     <div class="game-container" id="game-container"></div>
     <button id="restart-button" style="display: none;">Restart Game</button>
     <button id="menu-button" style="display: none;">Back to Menu</button>
-    <button id="home-button" style="display: inline;">Back to Home</button>
+    <button id="home-button" style="display: none;">Back to Home</button> <!-- Set to display none initially -->
+    <button id="home-button">
+        <img src="return.png" alt="Return to Home" id="return-image">
+    </button>
     <script src="jawi.js"></script>
 </body>
 </html>

@@ -1,0 +1,66 @@
+/* Center the congratulations container on the page */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-image: url("Background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden; /* Prevents scrollbars from appearing due to confetti */
+}
+
+.congratulations-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    position: relative;
+    z-index: 10; /* Ensures the container appears above the confetti */
+}
+
+
+/* Style the heading */
+h1 {
+    color: #1E40FF; /* Vibrant blue color */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Style the paragraphs */
+p {
+    color: #333;
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+/* Style the home button */
+#home-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Center the button within the container */
+}
+
+/* Style the home image inside the button */
+#home-image {
+    width: 100px; /* Adjust the size as needed */
+    height: 100px;
+    transition: transform 0.3s;
+}
+
+#home-image:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}

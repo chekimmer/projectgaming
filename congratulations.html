@@ -3,31 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="congrats.css">
     <title>Congratulations!</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.min.js"></script>
 </head>
 <body>
     <div class="congratulations-container">
         <h1>Congratulations!</h1>
-        <p>You have completed the Alphabet Matching Game!</p>
-        <p>Great job on matching all the letters!</p>
-        <button id="play-again-button">Play Again</button>
-        <button id="menu-button">Return to Menu</button>
+        <p> 👍👍  </p>
+        <p>Great job on matching all the Cards!</p>
+        
+        <!-- Button with home.png image -->
+        <button id="home-button">
+            <img src="home.png" alt="Return to Home" id="home-image">
+        </button>
     </div>
 
     <script>
-        const playAgainButton = document.getElementById("play-again-button");
-        const menuButton = document.getElementById("menu-button");
+        const homeButton = document.getElementById("home-button");
 
-        // Navigate to the game page
-        playAgainButton.addEventListener("click", function() {
-            window.location.href = 'index.html'; // Change to your game page URL
-        });
-
-        // Navigate to the menu
-        menuButton.addEventListener("click", function() {
-            window.location.href = 'index.html'; // Change to your menu page URL
+        // Navigate to the home page
+        homeButton.addEventListener("click", function() {
+            window.location.href = 'index.html'; // Change to your home page URL
         });
     </script>
+    <script src="congrats.js"></script>
 </body>
 </html>

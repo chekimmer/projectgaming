@@ -1,62 +1,90 @@
 body {
-     background-image: url("Background.jpg");
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    flex-direction: column; /* Allows the footer to sit at the bottom */
-    justify-content: center; /* Center main content vertically */
-    align-items: center;
+    background-image: url("Background.jpg");
+   font-family: 'Comic Sans MS', cursive, sans-serif;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 }
 
 h1 {
-    color: #637A9F;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+   color: #1E40FF;
+   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 #stage-display, #timer-display {
-    font-size: 24px;
-    margin: 10px;
-    color: #333;
+   font-size: 24px;
+   margin: 10px;
+   color: #333;
 }
 
-
 #timer {
-    font-size: 24px;
-    margin: 10px 0;
-    color: #d32f2f; /* Red color for timer */
+   font-size: 24px;
+   margin: 10px 0;
+   color: #d32f2f;
 }
 
 .game-container {
-    display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-gap: 100px;
-    row-gap: 70px;
+   display: grid;
+   grid-template-columns: repeat(4, 100px);
+   grid-gap: 100px;
+   row-gap: 70px;
 }
 
+#menu-button {
+   position: fixed;
+   top: 50%;
+   left: 20px;
+   transform: translateY(-50%);
+   background: none;
+   border: none;
+   padding: 0;
+   cursor: pointer;
+}
+
+#return-image {
+   width: 90px; /* Increase the width to make it bigger */
+   height: 90px; /* Increase the height to make it bigger */
+   opacity: 0.8;
+   transition: opacity 0.3s, transform 0.3s; /* Add smooth scaling on hover */
+}
+
+#return-image:hover {
+   opacity: 1;
+   transform: scale(1.1); /* Slightly enlarge on hover for effect */
+}
+
+
 .card {
-    width: 150px;
-    height: 150px;
-    background-color: #4CAF50;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 36px;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
+   width: 150px;
+   height: 150px;
+   background-color: #4CAF50;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 36px;
+   color: white;
+   cursor: pointer;
+   border-radius: 5px;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+   transition: background-color 0.3s;
 }
 
 .card.flipped {
-    background-color: #fff;
-    color: #4CAF50;
+   background-color: #fff;
+   color: #4CAF50;
 }
 
 .card.matched {
-    background-color: #2196F3;
-    color: white;
+   background-color: #2196F3;
+   color: white;
+}
+
+#home-button img,
+#menu-button img {
+   margin-right: 5px;
+   vertical-align: middle;
 }

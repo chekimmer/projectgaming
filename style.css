@@ -8,6 +8,16 @@ html, body {
     font-family: Nfont;
     src: url(cake.otf);
 }
+@media (max-width: 768px) {
+    h1 {
+        /* Adjust header properties for smaller screens */
+        padding: 10px;
+        font-size: smaller;
+        overflow: hidden;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
 
 body {
     background-image: url('Background.jpg');
