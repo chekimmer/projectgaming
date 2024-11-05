@@ -159,6 +159,7 @@ homeButton.addEventListener("click", backToHome);
 createCards();
 
 
+
 const musicButton = document.getElementById("music-button");
 const musicIcon = document.getElementById("music-icon");
 const audio = new Audio("piano.mp3");
@@ -177,7 +178,5 @@ function toggleMusic() {
     }
     isPlaying = !isPlaying;
 }
-
-
 
 
