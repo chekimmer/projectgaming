@@ -168,3 +168,5 @@ homeButton.addEventListener("click", function() {
 
 // Start the game
 createCards();
+
+

@@ -157,3 +157,9 @@ homeButton.addEventListener("click", backToHome);
 
 // Start the game
 createCards();
+
+
+
+
+
+

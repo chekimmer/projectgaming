@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="congrats.css">
     <title>Congratulations!</title>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.min.js"></script>
+  
 </head>
 <body>
+    <!-- Confetti canvas -->
+    <canvas id="confettiCanvas"></canvas>
+
     <div class="congratulations-container">
         <h1>Congratulations!</h1>
         <p> 👍👍  </p>
@@ -18,15 +21,8 @@
             <img src="home.png" alt="Return to Home" id="home-image">
         </button>
     </div>
-
-    <script>
-        const homeButton = document.getElementById("home-button");
-
-        // Navigate to the home page
-        homeButton.addEventListener("click", function() {
-            window.location.href = 'index.html'; // Change to your home page URL
-        });
-    </script>
+ 
+    <!-- Your confetti script -->
     <script src="congrats.js"></script>
 </body>
 </html>

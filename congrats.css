@@ -1,4 +1,4 @@
-/* Center the congratulations container on the page */
+/* Reset margins and padding for body and html */
 body, html {
     margin: 0;
     padding: 0;
@@ -8,13 +8,26 @@ body, html {
     justify-content: center;
     align-items: center;
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    background-image: url("Background.jpg");
+    background-image: url("Background.jpg"); /* Optional background image */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    overflow: hidden; /* Prevents scrollbars from appearing due to confetti */
+    overflow: hidden; /* Prevents scrollbars from appearing */
 }
 
+/* Center the congratulations container */
+/* Confetti canvas styling */
+#confettiCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Places canvas behind the container */
+    pointer-events: none; /* Allows clicks to pass through the canvas */
+}
+
+/* Center the congratulations container */
 .congratulations-container {
     text-align: center;
     padding: 20px;
@@ -22,10 +35,9 @@ body, html {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 400px;
-    position: relative;
-    z-index: 10; /* Ensures the container appears above the confetti */
+    z-index: 10; /* Ensures the container is above the canvas */
+    position: relative; /* Necessary for z-index to work */
 }
-
 
 /* Style the heading */
 h1 {

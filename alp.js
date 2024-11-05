@@ -156,3 +156,7 @@ menuButton.addEventListener("click", backToMenu);
 
 // Start the game
 createCards();
+
+
+
+
