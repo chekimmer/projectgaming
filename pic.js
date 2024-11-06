@@ -158,7 +158,7 @@ function restartGame() {
     homeButton.style.display = "none"; // Hide home button
 }
 
-// Event listener for the restart button
+
 restartButton.addEventListener("click", restartGame);
 
 // Event listener for the home button
