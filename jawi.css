@@ -14,54 +14,50 @@ h1 {
    color: #1E40FF;
    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
-#stage-display {
-    font-size: 24px;
-    margin: 10px;
-    color: #333;
-}
-
-.game-container {
-    display: grid;
-    grid-template-columns: repeat(5, 100px);
-    grid-gap: 100px;
-    row-gap: 70px;
-}
-
-.card {
-    width: 150px;
-    height: 150px;
-    background-color: #4CAF50; /* Card color */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 36px;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
-}
-
-.card.flipped {
-    background-color: #fff;
-    color: #4CAF50;
-}
-
-.card.matched {
-    background-color: #2196F3;
-    color: white;
-}
 
 #timer-display {
     font-size: 24px;
     margin: 10px;
     color: #333;
 }
+
+.game-container {
+    display:grid;
+    grid-template-columns: repeat(4, 150px);  /* Change column width */
+    grid-template-rows: repeat(2, 150px); /* Add two rows */
+    grid-gap: 70px; /* Reduce the gap between cards */
+    row-gap: 70px; /* Reduce the row gap */
+}
+
+.card {
+    width: 200px;
+    height: 200px;
+    background-color: #4CAF50; /* Card color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+
+.card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    display: none; /* Hide image initially */
+}
+
+.card.flipped img {
+    display: block; /* Show image when flipped */
+}
 #home-button {
     position: fixed;
-    top: 50%; /* Position it at the middle of the viewport vertically */
-    left: 20px; /* Position it on the left side */
-    transform: translateY(-50%); /* Center the button vertically */
+    top: 50%; /* Center vertically */
+    left: 20px; /* Position on the left side */
+    transform: translateY(-50%); /* Adjust position to be exactly centered */
     background: none;
     border: none;
     padding: 0;
@@ -70,7 +66,7 @@ h1 {
 
 #return-image {
     width: 90px; /* Increase the width to make it bigger */
-    height: 90px; 
+    height: 90px; /* Increase the height to make it bigger */
     opacity: 0.8;
     transition: opacity 0.3s, transform 0.3s; /* Add smooth scaling on hover */
 }
@@ -101,3 +97,5 @@ h1 {
     opacity: 1;
     transform: scale(1.1);
 }
+
+ 
