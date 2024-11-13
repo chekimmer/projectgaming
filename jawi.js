@@ -11,15 +11,14 @@ let lockBoard = false;
 let timer;
 let seconds = 0;
 let currentStage = 1;
-const totalStages = 5; // Total number of stages
+const totalStages = 4; // Total number of stages (updated to 4)
 
 // Jawi letters array divided into stages
 const jawiStages = [
-    ['ج', 'ح', 'خ', 'د', 'ذ'], // Stage 1
-    ['ر', 'ز', 'س', 'ش', 'ص'], // Stage 2
-    ['ض', 'ط', 'ظ', 'ع', 'غ'], // Stage 3
-    ['ف', 'ق', 'ك', 'ل', 'م'], // Stage 4
-    ['ن', 'هـ', 'و', 'ي', 'أ']  // Stage 5
+    ['ا', 'ب', 'ت', 'ث', 'ج'], // Stage 1
+    ['ح', 'خ', 'د', 'ذ', 'ر'], // Stage 2
+    ['ز', 'ژ', 'ص', 'ض', 'ط'], // Stage 3
+    ['ظ', 'ع', 'غ', 'ف', 'ق'], // Stage 4
 ];
 
 function createCards() {
@@ -134,24 +133,25 @@ function restartGame() {
     restartButton.style.display = "none"; // Hide restart button
 }
 
-// Navigate back to the menu
-function backToMenu() {
-    window.location.href = 'index.html'; // Change to the appropriate menu URL
+// Navigate to the home page
+function returnToHome() {
+    window.location.href = 'index.html';
 }
 
-// Navigate back to the home page
-function backToHome() {
-    window.location.href = 'index.html'; // Change to your home page URL
+// Navigate back to the menu
+function backToMenu() {
+    restartGame();
+    window.location.href = 'index.html';
 }
 
 // Event listener for the restart button
 restartButton.addEventListener("click", restartGame);
 
+// Event listener for the home button
+homeButton.addEventListener("click", returnToHome);
+
 // Event listener for the menu button
 menuButton.addEventListener("click", backToMenu);
-
-// Event listener for the home button (using the transparent "return.png" image as a button)
-homeButton.addEventListener("click", backToHome); // Ensure the home button works
 
 // Start the game
 createCards();
@@ -174,5 +174,4 @@ function toggleMusic() {
     }
     isPlaying = !isPlaying;
 }
-
-
+// Back to Home button functionality

@@ -9,10 +9,10 @@ musicButton.addEventListener("click", toggleMusic);
 function toggleMusic() {
     if (isPlaying) {
         audio.pause();
-        musicIcon.src = "play.png"; // Update the icon to show 'play'
+        musicIcon.src = "play.png"; 
     } else {
         audio.play();
-        musicIcon.src = "pause.png"; // Update the icon to show 'pause' (make sure to have this image)
+        musicIcon.src = "pause.png"; 
     }
     isPlaying = !isPlaying;
 }
