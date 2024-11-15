@@ -38,7 +38,7 @@ const stages = [
         'jawi/fa.png', 'jawi/fa.png', ,'jawi/zo.png','jawi/zo.png' 
     ],
     [//stage 6
-        'jawi/lam.png', 'jawi/lam.png','jawi/mem.png','jawi/mem.png', 
+        'jawi/laam.png', 'jawi/laam.png','jawi/mem.png','jawi/mem.png', 
         'jawi/kaaf.png', 'jawi/kaaf.png',,'jawi/qaaf.png', 'jawi/qaaf.png'
 
     ],
